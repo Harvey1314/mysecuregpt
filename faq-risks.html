@@ -21,22 +21,11 @@
 
       <!-- Nav links -->
       <nav>
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="process.html">How Does It Work</a>
         <a href="FAQ.html">FAQ</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact Us</a>
-
-        <!-- Theme toggle (adds/removes body.light) -->
-        <button
-          id="themeToggle"
-          class="theme-toggle"
-          type="button"
-          aria-label="Toggle theme"
-          title="Toggle theme"
-        >
-          🌙
-        </button>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#contact">Contact Us</a>
       </nav>
     </header>
     <div class="faq-bg" aria-hidden="true"></div>
@@ -111,11 +100,11 @@
         </div>
 
         <nav class="footer-nav">
-          <a href="home.html">Home</a>
-          <a href="process.html">How It Works</a>
-          <a href="questions.html">FAQ</a>
-          <a href="home.html#about">About</a>
-          <a href="home.html#contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="process.html">How Does It Work</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="index.html#about">About Us</a>
+          <a href="index.html#contact">Contact Us</a>
         </nav>
       </div>
 
@@ -135,30 +124,5 @@
         <span class="dev-text">Developed by Haarsh</span>
       </div>
     </footer>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggle = document.getElementById("themeToggle");
-        if (!toggle) return;
-
-        const body = document.body;
-
-        // Load saved theme
-        const saved = localStorage.getItem("theme");
-        if (saved === "light") {
-          body.classList.add("light");
-          toggle.textContent = "☀️";
-        } else {
-          toggle.textContent = "🌙";
-        }
-
-        // Toggle
-        toggle.addEventListener("click", () => {
-          body.classList.toggle("light");
-          const isLight = body.classList.contains("light");
-          toggle.textContent = isLight ? "☀️" : "🌙";
-          localStorage.setItem("theme", isLight ? "light" : "dark");
-        });
-      });
-    </script>
   </body>
 </html>
