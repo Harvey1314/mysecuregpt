@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySecureGPT</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- ✅ LIGHT THEME ONLY (no dark theme class, no toggle) -->
+  <body class="light">
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="images/logo.png" alt="MySecureGPT Logo" class="logo-img" />
+      </div>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="process.html">How Does It Work</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h1>
+          Chat with your<br />
+          <span>Accounting System</span>
+        </h1>
+
+        <h2>
+          Without<br />
+          Compromising Data Security
+        </h2>
+      </div>
+
+      <div class="hero-right">
+        <div class="chat-box">
+          <div class="chat-top">
+            <div class="chat-brand" aria-label="Brand">
+              <div class="logo">
+                <center>
+                  <img
+                    src="images/logo.png"
+                    alt="MySecureGPT Logo"
+                    class="logo-img"
+                  />
+                </center>
+              </div>
+            </div>
+
+            <button class="tutorial-btn" type="button">Tutorial</button>
+          </div>
+
+          <p class="chat-desc">
+            Hello, I am Secure ChatGPT customized for your organization. I am
+            being trained to find information quickly from your data sources.
+          </p>
+
+          <a class="upload-btn" href="#contact">Contact us for more details</a>
+
+          <div class="chat-body">
+            <aside class="sidebar">
+              <div class="sidebar-pill">Frequently Searched Items</div>
+              <ul>
+                <li>What is the process for resetting VPN?</li>
+                <li>How to solve slow computer issues?</li>
+                <li>What are the guidelines for shipping to Asia?</li>
+                <li>What is the process for issuing RFQ?</li>
+              </ul>
+
+              <a class="upload-btn" href="#contact">Upload New Documents</a>
+            </aside>
+
+            <div class="content">
+              <div class="box">
+                <h4>Source Document</h4>
+                <p class="box-muted">Your document content will appear here.</p>
+              </div>
+
+              <div class="box">
+                <h4>Answer</h4>
+                <p class="box-muted">Your AI answer will appear here.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="how">
+      <div class="feature-card">
+        <img src="images/paperwork.png" alt="Information overload" />
+        <p>Stop your team from wasting time looking for trivial information</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/factory-team.png" alt="Workforce collaboration" />
+        <p>Transform company tribal knowledge into institutional knowledge</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/happy-user.png" alt="Fast accurate responses" />
+        <p>Delight your customers with quicker and more accurate responses</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="images/secure-ai.png" alt="Secure AI system" />
+        <p>Own a secure AI knowledge model for your organization</p>
+      </div>
+    </section>
+
+    <!-- DIFFERENCE -->
+    <section class="difference" id="difference">
+      <div class="difference-wrap">
+        <div class="difference-title">
+          How is Secure ChatGPT different than OpenAI ChatGPT?
+        </div>
+
+        <div class="diff-grid">
+          <article class="diff-card">
+            <div class="diff-media">
+              <img src="images/datasecurity.png" alt="Data Security" />
+            </div>
+            <div class="diff-overlay">
+              <h4 class="diff-heading">Data Security</h4>
+              <p class="diff-text">
+                Keep your data local for privacy and compliance. No need to
+                share data with external LLMs.
+              </p>
+            </div>
+          </article>
+
+          <article class="diff-card">
+            <div class="diff-media">
+              <img
+                src="images/informationrelevance.png"
+                alt="Information Relevance"
+              />
+            </div>
+            <div class="diff-overlay">
+              <h4 class="diff-heading">Information Relevance</h4>
+              <p class="diff-text">
+                Interact with your files and internal sources to find
+                business-relevant answers faster.
+              </p>
+            </div>
+          </article>
+
+          <article class="diff-card">
+            <div class="diff-media">
+              <img src="images/spendless.png" alt="Spend Less" />
+            </div>
+            <div class="diff-overlay">
+              <h4 class="diff-heading">Spend Less</h4>
+              <p class="diff-text">
+                Avoid paying proprietary LLM providers every time you want to
+                use local ChatGPT.
+              </p>
+            </div>
+          </article>
+
+          <article class="diff-card">
+            <div class="diff-media">
+              <img src="images/talktohuman.png" alt="Human Support" />
+            </div>
+            <div class="diff-overlay">
+              <h4 class="diff-heading">Human Support</h4>
+              <p class="diff-text">
+                24×7 support to manage uptime, integrations, and custom API
+                connections.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="services-wrap">
+        <h2 class="services-title">What AI services we offer?</h2>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-media">
+              <img
+                src="images/service-knowledge.png"
+                alt="Internal Knowledge ChatGPT"
+              />
+            </div>
+            <p class="service-text">
+              Take your structured and unstructured data to develop internal
+              knowledge ChatGPT
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media">
+              <img src="images/service-crm.png" alt="CRM Co-pilot" />
+            </div>
+            <p class="service-text">
+              Take your product data sheets &amp; CRM data to develop co-pilot
+              for your sales team
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-media">
+              <img
+                src="images/service-security.png"
+                alt="Cybersecurity Assessment"
+              />
+            </div>
+            <p class="service-text">
+              Conduct cybersecurity assessment of your AI applications
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <center><h2 class="services-title">About Us</h2></center>
+
+      <div class="about-wrap">
+        <div class="about-images">
+          <img src="images/AiCustome.png" alt="AI Customization" />
+          <img src="images/AiNetwork.png" alt="AI Network" />
+        </div>
+
+        <div class="about-content">
+          <p>
+            We are practical AI (Artificial Intelligence) enthusiasts from
+            Cincinnati, Ohio. We know that capital and resources are limited for
+            small and medium size businesses and AI investments need real
+            returns. We always start with the business problem that Secure
+            ChatGPT can solve for your organization.
+          </p>
+
+          <p>
+            We know several paths can be taken to implement AI solutions in your
+            business. Our focus will be to increase the productivity of your
+            sales team, customer support, and operations team. If AI is not
+            adding directly to your bottom line, then we will not have done our
+            job.
+          </p>
+
+          <p>
+            We are a group of data scientists, data engineers and Generative AI
+            engineers who want to make AI accessible for SMBs in our community.
+          </p>
+
+          <p class="about-cta">
+            Contact us to make your business multi-generational and resilient
+            against the wave of AI technologies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact-wrap">
+        <div class="contact-left">
+          <h2>Contact Us</h2>
+          <div class="contact-line"></div>
+
+          <div class="contact-info">
+            <p>📍 8859 Brookside Avenue. Suite 201. West Chester, OH 45069</p>
+
+            <!-- ✅ Clickable email: mailto + Gmail compose button -->
+            <p>
+              ✉️
+              <a
+                class="contact-email"
+                href="mailto:apatel@mysecuregpt.com?subject=Inquiry%20from%20MySecureGPT"
+              >
+              </a>
+              <span style="opacity: 0.6; padding: 0 10px"></span>
+              <a
+                class="contact-email contact-email--btn"
+                target="_blank"
+                rel="noreferrer"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=apatel@mysecuregpt.com&su=Inquiry%20from%20MySecureGPT"
+              >
+                apatel@mysecuregpt.com
+              </a>
+            </p>
+
+            <p>📞 1-513-405-9002</p>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <!-- ✅ Clean heading (no nested h2 inside h3) -->
+
+          <form class="contact-form" id="contactForm">
+            <input
+              type="text"
+              name="company_site"
+              autocomplete="off"
+              tabindex="-1"
+              style="position: absolute; left: -9999px; opacity: 0"
+            />
+
+            <div class="contact-row">
+              <div class="field">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="from_name"
+                  placeholder="Name"
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label>Phone</label>
+                <input type="text" name="phone" placeholder="Phone" />
+              </div>
+
+              <div class="field">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="reply_to"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label>Message</label>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="Click on the email to connect us || apatel@mysecuregpt.com"
+                required
+              ></textarea>
+            </div>
+
+            <button class="contact-submit" id="contactSubmitBtn" type="submit">
+              Submit
+            </button>
+
+            <p
+              id="contactStatus"
+              style="margin-top: 10px; font-weight: 600"
+            ></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-wrap">
+        <div class="footer-brand">
+          <img
+            src="images/logo.png"
+            class="footer-logo-img"
+            alt="MySecureGPT"
+          />
+        </div>
+
+        <nav class="footer-nav">
+          <a href="home.html">Home</a>
+          <a href="process.html">How It Works</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="footer-right"></div>
+      </div>
+
+      <div class="footer-bottom">© 2025 MySecureGPT. All rights reserved.</div>
+
+      <div class="developer-credit">
+        <a
+          class="dev-link"
+          href="https://www.linkedin.com/in/patel-harsh14/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Harsh Patel LinkedIn"
+        >
+          <img src="images/favicon.png" alt="Harsh Patel" class="dev-logo" />
+        </a>
+
+        <span class="dev-text">Developed by Haarsh</span>
+      </div>
+    </footer>
+  </body>
+</html>

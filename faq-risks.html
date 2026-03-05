@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      What are the risks of Secure ChatGPT? And how do we address them? |
+      MySecureGPT
+    </title>
+
+    <!-- SAME CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <!-- Brand / Logo -->
+      <div class="logo">
+        <img src="images/logo.png" alt="MySecureGPT Logo" class="logo-img" />
+      </div>
+
+      <!-- Nav links -->
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="process.html">How Does It Work</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+
+        <!-- Theme toggle (adds/removes body.light) -->
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
+      </nav>
+    </header>
+    <div class="faq-bg" aria-hidden="true"></div>
+
+    <main class="faq-article-page">
+      <section class="faq-article-wrap">
+        <div class="faq-article-container">
+          <h1 class="faq-article-title">
+            What are the risks of Secure<br />
+            ChatGPT? And how do we address<br />
+            them?
+          </h1>
+
+          <!-- optional image (keep if you want consistency) -->
+          <div class="faq-hero-img">
+            <img
+              src="images/faq-risks.png"
+              alt="Risks and mitigation for Secure ChatGPT"
+            />
+          </div>
+
+          <div class="faq-article-content">
+            <p>
+              Take a journey into the security infrastructure of MySecureGPT,
+              featuring local hosting and internet isolation to fortify against
+              potential data breaches, setting new standards for secure
+              conversational AI.
+            </p>
+
+            <p>
+              Like any powerful technology, Secure ChatGPT introduces risks if
+              deployed without controls. The most common concerns include
+              unauthorized access to sensitive information, accidental exposure
+              of internal data through prompts, over-reliance on AI outputs, and
+              compliance risks when data is processed in unsecured environments.
+            </p>
+
+            <p>
+              MySecureGPT addresses these risks through a layered security
+              approach. We support secure deployment patterns such as
+              local/private hosting, network isolation, and strict access
+              controls, ensuring your organization’s data stays within your
+              governed environment.
+            </p>
+
+            <p>
+              In addition, administrative policies and guardrails help reduce
+              data leakage. Role-based access, audit trails, and retention
+              controls ensure that usage is accountable and aligned with your
+              security requirements.
+            </p>
+
+            <p>
+              Finally, we encourage a “human-in-the-loop” workflow for critical
+              use cases. This ensures AI-assisted work remains accurate, safe,
+              and compliant—while still delivering speed and productivity
+              benefits.
+            </p>
+
+            <div class="faq-article-bottom">
+              <a class="back-link" href="FAQ.html">← Back to Questions</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-wrap">
+        <div class="footer-brand">
+          <span class="footer-logo">MYSECUREGPT</span>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="home.html">Home</a>
+          <a href="process.html">How It Works</a>
+          <a href="questions.html">FAQ</a>
+          <a href="home.html#about">About</a>
+          <a href="home.html#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">© 2025 MySecureGPT. All rights reserved.</div>
+
+      <div class="developer-credit">
+        <a
+          class="dev-link"
+          href="https://www.linkedin.com/in/patel-harsh14/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Haarsh Patel LinkedIn"
+        >
+          <img src="images/favicon.png" alt="Haarsh Patel" class="dev-logo" />
+        </a>
+
+        <span class="dev-text">Developed by Haarsh</span>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("themeToggle");
+        if (!toggle) return;
+
+        const body = document.body;
+
+        // Load saved theme
+        const saved = localStorage.getItem("theme");
+        if (saved === "light") {
+          body.classList.add("light");
+          toggle.textContent = "☀️";
+        } else {
+          toggle.textContent = "🌙";
+        }
+
+        // Toggle
+        toggle.addEventListener("click", () => {
+          body.classList.toggle("light");
+          const isLight = body.classList.contains("light");
+          toggle.textContent = isLight ? "☀️" : "🌙";
+          localStorage.setItem("theme", isLight ? "light" : "dark");
+        });
+      });
+    </script>
+  </body>
+</html>

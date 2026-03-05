@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ============================================================
+      BASIC META
+      ============================================================ -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySecureGPT | How Does It Work</title>
+
+    <!-- ============================================================
+      FONT
+      ============================================================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ============================================================
+      MAIN SITE CSS (your global stylesheet)
+      ============================================================ -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* ============================================================
+        ✅ LIGHT-ONLY PAGE STYLES FOR process.html
+        What this <style> does:
+        - Keeps your layout exactly the same
+        - Removes "dark-mode defaults" in this page CSS
+        - Removes ALL body.light selectors (because site is light-only now)
+        ============================================================ */
+
+      /* ============================================================
+        1) PAGE SPACING
+        - Adds top padding so sticky navbar doesn't cover content
+        ============================================================ */
+      .page-hero {
+        padding: 110px 64px 30px;
+        padding-left: 48px; /* full-width look */
+        padding-right: 48px; /* full-width look */
+      }
+
+      .page-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Full-width look wrapper (keeps it clean) */
+      .page-hero .page-wrap {
+        max-width: 100%;
+      }
+
+      /* ============================================================
+        2) PAGE TITLE + SUBTITLE
+        - Uses your global tokens from style.css: var(--text)
+        - Subtitle is now LIGHT-friendly (no dark rgba values)
+        ============================================================ */
+      .page-title {
+        font-size: clamp(25px, 3.6vw, 54px);
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        margin: 0 0 10px;
+        color: var(--text);
+      }
+
+      .page-subtitle {
+        margin: 0 0 28px;
+        color: rgba(15, 23, 42, 0.7);
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 900px;
+      }
+
+      /* ============================================================
+        3) TOP GRID (2 PROCESS PANELS)
+        - These are the two top image cards
+        - Converted to LIGHT glass style
+        ============================================================ */
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 36px;
+        align-items: stretch;
+      }
+
+      .process-card {
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 18px 45px rgba(2, 6, 23, 0.12);
+        backdrop-filter: blur(10px);
+
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          border-color 0.25s ease;
+
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Soft glow on hover */
+      .process-card::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 159, 69, 0.25),
+          rgba(139, 197, 63, 0.22),
+          rgba(34, 211, 238, 0.18)
+        );
+        filter: blur(18px);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        pointer-events: none;
+      }
+
+      .process-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 159, 69, 0.35);
+        box-shadow: 0 28px 95px rgba(2, 6, 23, 0.16);
+      }
+
+      .process-card:hover::before {
+        opacity: 0.9;
+      }
+
+      /* Header row inside each panel */
+      .process-card-head {
+        padding: 18px 18px 14px;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .process-card-title {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 900;
+        color: rgba(15, 23, 42, 0.9);
+        letter-spacing: -0.01em;
+      }
+
+      .process-card-badge {
+        font-size: 12px;
+        font-weight: 700;
+        padding: 7px 10px;
+        border-radius: 999px;
+        color: rgba(15, 23, 42, 0.72);
+        background: rgba(15, 23, 42, 0.05);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        white-space: nowrap;
+      }
+
+      /* Media area (keeps both cards aligned) */
+      .process-media {
+        width: 100%;
+        padding: 18px;
+        min-height: 520px;
+        background: rgba(15, 23, 42, 0.03);
+        display: grid;
+        place-items: center;
+      }
+
+      /* Images */
+      .process-img {
+        width: 100%;
+        max-width: 680px;
+        max-height: 480px;
+        height: auto;
+
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+
+        border-radius: 18px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 12px 30px rgba(2, 6, 23, 0.12);
+        background: #fff;
+      }
+
+      /* ============================================================
+        4) TIMELINE SECTION
+        - 7 step timeline
+        - Converted to LIGHT style (cards, dots, line)
+        ============================================================ */
+      .timeline {
+        padding: 24px 64px 70px;
+      }
+
+      .timeline .page-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .timeline-wrap {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 0 20px;
+      }
+
+      /* Center vertical line */
+      .timeline-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        transform: translateX(-50%);
+        background: linear-gradient(
+          180deg,
+          rgba(34, 211, 238, 0.95),
+          rgba(34, 211, 238, 0.55),
+          rgba(34, 211, 238, 0.18)
+        );
+        border-radius: 999px;
+        box-shadow: 0 0 20px rgba(34, 211, 238, 0.25),
+          0 0 60px rgba(34, 211, 238, 0.14);
+        opacity: 0.95;
+      }
+
+      /* One timeline row */
+      .timeline-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 90px 1fr;
+        align-items: start;
+        gap: 26px;
+        padding: 24px 0;
+      }
+
+      /* Center dot */
+      .timeline-dot {
+        grid-column: 2;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        margin: 6px auto 0;
+
+        display: grid;
+        place-items: center;
+
+        font-weight: 900;
+        font-size: 18px;
+        line-height: 1;
+
+        background: #ffffff;
+        border: 2px solid rgba(15, 23, 42, 0.18);
+        color: rgba(15, 23, 42, 0.72);
+
+        box-shadow: 0 10px 24px rgba(2, 6, 23, 0.1);
+      }
+
+      .timeline-dot.active {
+        background: rgba(34, 211, 238, 0.22);
+        border-color: rgba(34, 211, 238, 0.55);
+        color: rgba(15, 23, 42, 0.78);
+      }
+
+      /* Timeline cards */
+      .timeline-card {
+        border-radius: 20px;
+        padding: 22px 26px;
+
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 18px 45px rgba(2, 6, 23, 0.1);
+        backdrop-filter: blur(12px);
+
+        transition: transform 0.2s ease, border-color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .timeline-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 159, 69, 0.25);
+        box-shadow: 0 22px 70px rgba(2, 6, 23, 0.14);
+      }
+
+      .timeline-card h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        font-weight: 900;
+        color: rgba(15, 23, 42, 0.92);
+        letter-spacing: -0.01em;
+      }
+
+      .timeline-card ul {
+        margin: 0;
+        padding-left: 22px;
+        color: rgba(15, 23, 42, 0.74);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      .timeline-card li {
+        margin: 8px 0;
+      }
+
+      /* Left/right placement */
+      .timeline-item.left .timeline-card {
+        grid-column: 1;
+      }
+      .timeline-item.right .timeline-card {
+        grid-column: 3;
+      }
+
+      /* Curved arrows (SVG) */
+      .timeline-curve {
+        position: absolute;
+        top: 8px;
+        width: 140px;
+        height: 110px;
+        pointer-events: none;
+        opacity: 0.95;
+      }
+
+      .timeline-curve path {
+        fill: none;
+        stroke: rgba(15, 23, 42, 0.65);
+        stroke-width: 4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 6px 14px rgba(2, 6, 23, 0.14));
+      }
+
+      .timeline-item.right .timeline-curve.right {
+        left: calc(50% + 12px);
+      }
+      .timeline-item.left .timeline-curve.left {
+        right: calc(50% + 12px);
+      }
+
+      /* ============================================================
+        5) RESPONSIVE
+        ============================================================ */
+      @media (max-width: 1024px) {
+        .page-hero {
+          padding: 100px 36px 26px;
+        }
+        .timeline {
+          padding: 18px 36px 60px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        /* stack the top 2 cards */
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .process-media {
+          min-height: auto;
+        }
+
+        .process-img {
+          max-width: 100%;
+          max-height: none;
+        }
+
+        /* timeline becomes single column */
+        .timeline-wrap {
+          max-width: 100%;
+          padding-left: 6px;
+          padding-right: 6px;
+        }
+
+        .timeline-line {
+          left: 18px;
+          transform: none;
+        }
+
+        .timeline-item {
+          grid-template-columns: 46px 1fr;
+          gap: 12px;
+        }
+
+        .timeline-dot {
+          grid-column: 1;
+          margin: 6px auto 0;
+        }
+
+        .timeline-card {
+          grid-column: 2 !important;
+        }
+
+        /* hide arrows on mobile */
+        .timeline-curve {
+          display: none;
+        }
+
+        .timeline-card h3 {
+          font-size: 18px;
+        }
+
+        .timeline-card ul {
+          font-size: 15px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .page-hero {
+          padding: 92px 18px 22px;
+        }
+
+        .timeline {
+          padding: 14px 18px 52px;
+        }
+      }
+    </style>
+  </head>
+
+  <!-- ✅ LIGHT ONLY -->
+  <body>
+    <!-- ============================================================
+      NAVBAR (reuses style.css navbar styles)
+      ============================================================ -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="images/logo.png" alt="MySecureGPT Logo" class="logo-img" />
+      </div>
+
+      <nav>
+        <a href="home.html">Home</a>
+        <a href="process.html">How Does It Work</a>
+        <a href="FAQ.html">FAQ</a>
+        <a href="home.html#about">About Us</a>
+        <a href="home.html#contact">Contact Us</a>
+      </nav>
+    </header>
+
+    <!-- ============================================================
+      TOP SECTION: TWO IMAGE PANELS
+      ============================================================ -->
+    <main class="page-hero" id="process">
+      <div class="page-wrap">
+        <center><h2 class="services-title">How Do We Work</h2></center>
+
+        <div class="process-grid">
+          <!-- PANEL 1 -->
+          <section class="process-card" aria-label="Seven Step Process">
+            <div class="process-card-head">
+              <h2 class="process-card-title">
+                Our Seven Step Process to Customize ChatGPT
+              </h2>
+            </div>
+
+            <div class="process-media">
+              <img
+                class="process-img"
+                src="images/SevenStep.png"
+                alt="Seven step process"
+              />
+            </div>
+          </section>
+
+          <!-- PANEL 2 -->
+          <section class="process-card" aria-label="Local ChatGPT Architecture">
+            <div class="process-card-head">
+              <h2 class="process-card-title">Local ChatGPT Architecture</h2>
+            </div>
+
+            <div class="process-media">
+              <img
+                class="process-img"
+                src="images/Localgtp.png"
+                alt="Local ChatGPT Architecture diagram"
+              />
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- ============================================================
+      TIMELINE (7 STEPS)
+      ============================================================ -->
+    <section class="timeline" id="seven-steps">
+      <div class="page-wrap">
+        <center><h2 class="services-title">Process Defined</h2></center>
+
+        <div class="timeline-wrap">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <!-- STEP 1 -->
+          <article class="timeline-item left">
+            <div class="timeline-dot">↓</div>
+
+            <svg
+              class="timeline-curve left"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M130,20 C70,20 70,90 10,90" />
+              <path d="M18,82 L10,90 L18,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>1. Define Scope &amp; Problem Statement</h3>
+              <ul>
+                <li>What does successful Secure ChatGPT look like?</li>
+                <li>
+                  How will we measure success? Increased productivity? Reduced
+                  cost? Increased sales?
+                </li>
+                <li>Develop a mutual project plan</li>
+                <li>Identify a mutual resource plan</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- STEP 2 -->
+          <article class="timeline-item right">
+            <div class="timeline-dot">↓</div>
+
+            <svg
+              class="timeline-curve right"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M10,20 C70,20 70,90 130,90" />
+              <path d="M122,82 L130,90 L122,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>2. Define Dataset &amp; Documents</h3>
+              <ul>
+                <li>What documents are used for today’s business process?</li>
+                <li>How frequently are those documents updated?</li>
+                <li>Who needs access to those documents?</li>
+                <li>Where are those documents stored?</li>
+                <li>What is the most critical information in the documents?</li>
+                <li>Any PIA or HIPPA information?</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- STEP 3 -->
+          <article class="timeline-item left">
+            <div class="timeline-dot">↓</div>
+
+            <svg
+              class="timeline-curve left"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M130,20 C70,20 70,90 10,90" />
+              <path d="M18,82 L10,90 L18,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>3. Survey User Pain Points &amp; Queries</h3>
+              <ul>
+                <li>What information is frequently needed?</li>
+                <li>How long does it take to find information?</li>
+                <li>What are some of the nuances of documents?</li>
+                <li>How are documents generated?</li>
+                <li>What information can be wrong in the document?</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- STEP 4 -->
+          <article class="timeline-item right active">
+            <div class="timeline-dot active">↓</div>
+
+            <svg
+              class="timeline-curve right"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M10,20 C70,20 70,90 130,90" />
+              <path d="M122,82 L130,90 L122,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>4. Modeling</h3>
+              <ul>
+                <li>Building the PrivateGPT</li>
+                <li>Ingesting the data</li>
+                <li>Prompt Engineering tuning</li>
+                <li>Knowledge-based tuning</li>
+                <li>Initial results accuracy &amp; tone</li>
+                <li>Identify cases of hallucinations</li>
+                <li>Establish basic guardrails</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- STEP 5 -->
+          <article class="timeline-item left active">
+            <div class="timeline-dot active">↓</div>
+
+            <svg
+              class="timeline-curve left"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M130,20 C70,20 70,90 10,90" />
+              <path d="M18,82 L10,90 L18,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>5. Piloting with Limited Users</h3>
+              <ul>
+                <li>Pilot the PrivateGPT with limited users</li>
+                <li>Gather user feedback</li>
+                <li>Identify false responses</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- STEP 6 -->
+          <article class="timeline-item right active">
+            <div class="timeline-dot active">↓</div>
+
+            <svg
+              class="timeline-curve right"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M10,20 C70,20 70,90 130,90" />
+              <path d="M122,82 L130,90 L122,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>6. Iterate</h3>
+              <ul>
+                <li>Further tune the model parameters to increase accuracy</li>
+                <li>Reduce/eliminate hallucination</li>
+                <li>Ingest additional documents</li>
+                <li>Establish new accuracy</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- STEP 7 -->
+          <article class="timeline-item left active">
+            <div class="timeline-dot active">↓</div>
+
+            <svg
+              class="timeline-curve left"
+              viewBox="0 0 140 110"
+              aria-hidden="true"
+            >
+              <path d="M130,20 C70,20 70,90 10,90" />
+              <path d="M18,82 L10,90 L18,98" />
+            </svg>
+
+            <div class="timeline-card">
+              <h3>7. Productionize PrivateGPT</h3>
+              <ul>
+                <li>Release the production version</li>
+                <li>Gather user feedback</li>
+                <li>Identify false responses</li>
+                <li>Monitor accuracy levels</li>
+                <li>Establish on-going support activities</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+      FOOTER
+      ============================================================ -->
+    <footer class="footer">
+      <div class="footer-wrap">
+        <div class="footer-brand">
+          <span class="footer-logo">
+            <img
+              src="images/logo.png"
+              alt="MySecureGPT"
+              class="footer-logo-img"
+            />
+          </span>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="home.html">Home</a>
+          <a href="process.html">How It Works</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="home.html#about">About</a>
+          <a href="home.html#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">© 2025 MySecureGPT. All rights reserved.</div>
+
+      <div class="developer-credit">
+        <a
+          class="dev-link"
+          href="https://www.linkedin.com/in/patel-harsh14/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Haarsh Patel LinkedIn"
+        >
+          <img src="images/favicon.png" alt="Haarsh Patel" class="dev-logo" />
+        </a>
+
+        <span class="dev-text">Developed by Haarsh</span>
+      </div>
+    </footer>
+  </body>
+</html>
